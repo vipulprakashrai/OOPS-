@@ -1,0 +1,40 @@
+import java.io.*;
+import java.util.*;
+
+class Main{
+
+    static class P {
+        int d = 1;
+        int d1 = 10;
+        void fun() {
+            System.out.println("P fun");
+        }
+        void fun1() {
+            System.out.println("P fun1");
+        }
+    }
+    static class C extends P {
+        int d = 2;
+        int d2 = 20;
+        void fun() {
+            System.out.println("C fun");
+        }
+        void fun2() {
+            System.out.println("C fun2");
+        }
+    }
+    
+    public static void main(String[] args) throws NumberFormatException, IOException {
+          // CASE-2 => C AND C 
+
+        C obj = new C();
+        System.out.println(obj.d); // 2 conflict(object has P.d and C.d resolved by reference-> C)
+        System.out.println(((p)obj).d); // 1 conlict(object has P.d and C.d resolved by reference-> P)
+        System.out.println(obj.d1); // 10
+        System.out.println(obj.d2); // 20
+        obj.fun(); // C fun
+        obj.fun1(); // P fun1
+        obj.fun2(); // C fun2
+    }
+    
+}
