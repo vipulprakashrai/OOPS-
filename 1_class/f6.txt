@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+class Main{
+    static class BankAccount{
+        int anum;
+        int money;
+        static int roi;
+
+        void announce(){
+            system.out.println(this.anum + "," + this.money + "," + this.roi);
+        }
+
+        Public static void main(String[] args)throws NumberFormatException, IOException{
+            BankAccount a1 = new BankAccount();
+            a1.anum = 10;
+            a1.money = 100;
+            a1.roi = 4; // warning(static data member should be modified using class and not object)
+
+            a1.announce();
+
+            BankAccount a2 = new BankAccount();
+            a2.anum = 11;
+            a2.money = 110;
+            a2.roi = 5; // warning(stati data member should be modified using class and not object)
+
+            a2.announce();
+            a1.announce();
+        }
+    }
+}
