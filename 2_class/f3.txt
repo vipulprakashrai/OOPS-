@@ -1,0 +1,41 @@
+import java.io.*;
+import java.util.*;
+
+class Main {
+
+    static class P {
+        int d = 1;
+        int d1 = 10;
+        void fun() {
+            System.out.println("P fun");
+        }
+        void fun1() {
+            System.out.println("P fun1");
+        }
+    }
+    static class C extends P {
+        int d = 2;
+        int d2 = 20;
+        void fun() {
+            System.out.println("C fun");
+        }
+        void fun2() {
+            System.out.println("C fun2");
+        }
+    }
+    
+    public static void main(String[] args) throws NumberFormatException, IOException {
+          // CASE-3 => P AND C 
+          P obj = new C();
+          System.out.println(obj.d);
+          System.out.println(obj.d1);
+         // System.out.println(obj.d2);// not allowed.
+         System.out.println(((C)obj).d2);// typecasting allowed it and we can see C.d2
+          obj.fun();
+          obj.fun1();
+         // obj.fun2();// not allowed.
+         ((c)obj).fun2();// typecasting allow it and we can see C.fun2
+    }
+
+
+}
